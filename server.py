@@ -3,21 +3,31 @@
 """
 import schedule
 import time
+from send_email import send
+from dispatch import _spiders
+
 
 current_time = str(time.strftime('%Y-%m-%d %H:%M'))
 
 
-def task1():
-    print("十秒执行一次任务1")
-
-
-def task2():
-    print("14:22执行一次，现在时间是：")
-    print(current_time)
+def run():
+    # 执行全部爬虫，将爬取到的信息进行对人友好的处理（可能是html？）
+    ret = []
+    for _ in _spiders:
+        cur_s = _()
+        per_ret = cur_s.start()
+        for k, v in per_ret.items():
+            ret.append(k+':'+v)
+    ret = "\n".join(ret)
+    # 将结构化数据发送到邮箱
+    send(ret)
 
 
 if __name__ == '__main__':
-    schedule.every(10).seconds.do(task1)
-    schedule.every().day.at('14:22').do(task2)
+
+    schedule.every(10).seconds.do(run)
+    # schedule.every().day.at('17:05').do(task2)
     while True:
         schedule.run_pending()
+
+    # run()
