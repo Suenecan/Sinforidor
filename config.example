@@ -1,0 +1,8 @@
+[email_info]
+mail_host = smtp.163.com
+# 163用户名
+mail_user =
+# 密码(部分邮箱为授权码)
+mail_pass =
+# 邮件发送方邮箱地址
+sender =
