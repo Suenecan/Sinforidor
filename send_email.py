@@ -16,7 +16,7 @@ def send(content):
     :return:
     """
     # 邮件接受方邮箱地址，注意需要[]包裹，这意味着你可以写多个邮件地址群发
-    receivers = ['syz2722@163.com']
+    receivers = ['shakesun7227@163.com']
     # 设置email信息
     # 邮件内容设置
     message = MIMEText(content, 'plain', 'utf-8')
@@ -45,5 +45,5 @@ def send(content):
 
 
 if __name__ == '__main__':
-    c = "https://www.baidu.com"
+    c = "<p>https://www.baidu.com</p>"
     send(c)
