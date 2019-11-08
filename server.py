@@ -7,9 +7,6 @@ from send_email import send
 from dispatch import _spiders
 
 
-current_time = str(time.strftime('%Y-%m-%d %H:%M'))
-
-
 def run():
     # 执行全部爬虫，将爬取到的信息进行对人友好的处理（可能是html？）
     ret = []
@@ -25,8 +22,7 @@ def run():
 
 if __name__ == '__main__':
 
-    schedule.every(10).seconds.do(run)
-    # schedule.every().day.at('17:05').do(task2)
+    schedule.every().day.at('04:00').do(run())
     while True:
         schedule.run_pending()
 
