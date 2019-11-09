@@ -27,6 +27,8 @@ class Spider_1():
             if publish_data == yesterday:
                 # print("好开心，成功了")
                 d[title] = desc + "\n" + link
+        if not d:
+            return {'s1': 'none'}
         return d
 
 
