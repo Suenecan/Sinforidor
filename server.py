@@ -22,7 +22,7 @@ def run():
 
 if __name__ == '__main__':
 
-    schedule.every().day.at('17:00').do(run)
+    schedule.every().day.at('12:00').do(run)
     while True:
         schedule.run_pending()
 

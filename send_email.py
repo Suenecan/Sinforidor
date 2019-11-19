@@ -29,9 +29,9 @@ def send(content):
     message['To'] = receivers[0]
     # 登录并发送邮件
     try:
-        smtpObj = smtplib.SMTP()
+        smtpObj = smtplib.SMTP_SSL(host=mail_host)
         # 连接到服务器
-        smtpObj.connect(mail_host, 25)
+        smtpObj.connect(mail_host, 465)
         # 登录到服务器
         smtpObj.login(mail_user, mail_pass)
         # 发送
