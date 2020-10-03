@@ -5,7 +5,7 @@ import datetime
 
 class Spider_1():
 
-    s_name = 'spider1'
+    s_name = 'microsoft'
 
     def __init__(self):
         self.url = 'https://www.msra.cn/zh-cn/news?wd&content-type=all'
@@ -24,11 +24,10 @@ class Spider_1():
             link = str(root.xpath('/html/body/div[2]/div/div[2]/div/div[2]/article[{}]/div[2]/p[1]/a/@href'.format(_))[0])
             data = str(root.xpath('/html/body/div[2]/div/div[2]/div/div[2]/article[{}]/div[2]/p[3]/span[1]/text()'.format(_))[0])
             publish_data = data.split("：")[-1]
+            # print(publish_data)
             if publish_data == yesterday:
                 # print("好开心，成功了")
                 d[title] = desc + "\n" + link
-        if not d:
-            return {'s1': 'none'}
         return d
 
 
