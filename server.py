@@ -15,7 +15,7 @@ def run():
         spider_ret = cur_s.start()
         per_site_info = []
         for title, descAndLink in spider_ret.items():
-            per_site_info.append(title+':'+descAndLink)
+            per_site_info.append(title+'=>'+descAndLink)
         
         ret[cur_s.s_name] = per_site_info
     # 组织一下数据
