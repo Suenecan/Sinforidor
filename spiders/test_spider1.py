@@ -4,16 +4,15 @@ import time
 import datetime
 
 class Spider_1():
-
+    """微软亚洲研究院"""
     s_name = 'microsoft'
 
     def __init__(self):
         self.url = 'https://www.msra.cn/zh-cn/news?wd&content-type=all'
+        self.today = datetime.date.today()
+        self.yesterday = str(self.today - datetime.timedelta(days=1))
 
     def start(self):
-
-        today = datetime.date.today()
-        yesterday = str(today - datetime.timedelta(days=1))
 
         d = {}
         ret = requests.get(self.url)
@@ -25,7 +24,7 @@ class Spider_1():
             data = str(root.xpath('/html/body/div[2]/div/div[2]/div/div[2]/article[{}]/div[2]/p[3]/span[1]/text()'.format(_))[0])
             publish_data = data.split("：")[-1]
             # print(publish_data)
-            if publish_data == yesterday:
+            if publish_data == self.yesterday:
                 # print("好开心，成功了")
                 d[title] = desc + "\n" + link
         return d
